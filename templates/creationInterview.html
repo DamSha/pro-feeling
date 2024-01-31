@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création d'Interview</title>
+</head>
+<body>
+    <h1>Créer une nouvelle Interview</h1>
+    <form method="post" action="{{ url_for('creationInterview', agent_id=agent_id, personne_id=personne_id) }}">
+        <label for="datetime">Date :</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
+        <br>
+        <label for="description">Description :</label>
+        <textarea id="description" name="description" rows="5" cols="33" required placeholder="Decrivez"></textarea>
+        <br>
+        <input type="hidden" name="agent" value="{{ agent_id }}">
+        <input type="hidden" name="personne" value="{{ personne_id }}">
+        <button type="submit">Ajouter Interview</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <!-- logo -->
+        <div>
+           <span> <h1>Home</h1></span>
+        </div>
+
+        <!-- barre de navigation -->
+        <div class="navbar">
+            <a href="connexion.html"> Connexion</a>
+            <a href="#interviews">Liste d'interwiews</a>
+            <a href="#personnes">Liste de personnes</a>
+            <a href="#agent">Liste d'agents</a>
+            <a href="inscription.html">Inscription</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Connexion -->
+        <section id="connexion">
+            <h2>Connexion</h2>
+            <form>
+                <label for="username">Nom d'utilisateur:</label>
+                <input type="text" id="username" name="username" required placeholder="Ecrivez votre nom d'utilisateur">
+                <br>
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="password" required placeholder="Ecrivez votre mot de passe">
+                <br>
+                <button type="submit">Se connecter</button>
+            </form>
+        </section>
+
+        <!-- Liste d'interviews-->
+        <section id="interviews">
+            <h2>Liste d'interviews</h2>
+            <ul>
+                {% for interview in interviews %}
+                    <li>{{ interview.date }} - {{ interview.description }} - {{ interview.agent.nom }} - {{ interview.agent.prenom }} - {{ interview.personne.nom }} - {{ interview.personne.prenom }}</li>
+                {% endfor %}
+            </ul>
+            <p><a href="{{ url_for('creationInterviews', agent_id='agent_id_placeholder', personne_id='personne_id_placeholder') }}">Créer une nouvelle interview</a></p>
+        </section>
+
+        <!-- Liste de personnes -->
+        <section id="personnes">
+            <h2>Liste des Personnes</h2>
+            <ul>
+                {% for personne in personness %}
+                    <li>{{ personne.nom }} - {{ personne.prenom }} - {{ personne.genre }} - {{ personne.casier }} - {{ personne.antecedents }} - {{ personne.description }} - {{ personne.consentement }}</li>
+                {% endfor %}
+            </ul>
+            <p><a href="{{ url_for('creationPersonne') }}">Créer une nouvelle personne</a></p>
+        </section>
+
+        <!-- Liste d'agents-->
+        <section id="agent">
+            <h2>Liste d'agents</h2>
+            <ul>
+                {% for agent in agents %}
+                    <li>{{ agent.nom }} - {{ agent.prenom }} - {{ agent.genre }} - {{ agent.specialite }}</li>
+                {% endfor %}
+            </ul>
+            <p><a href="{{ url_for('creationAgent') }}">Créer un agent</a></p>
+        </section>
+
+            </form>
+        </section>
+    </main>
+<!-- Footer -->
+    <footer>
+        
+    </footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création d'Agent</title>
+</head>
+<body>
+    <h1>Créer un nouvel Agent</h1>
+    <form method="post" action="{{ url_for('creationAgent') }}">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" placeholder="Ecrivez votre nom" required>
+        <br>
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" placeholder="Ecrivez votre prenom" required>
+        <br>
+        <label for="genre">Genre :</label>
+        <select id="genre" name="genre" required>
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+            <option value="autre">Autre</option>
+        </select>
+        <br>
+        <label for="specialite">Spécialité :</label>
+        <input type="text" id="specialite" name="specialite" placeholder="Ecrivez votre Spécialité" required>
+        <br>
+        <button type="submit">Ajouter Agent</button>
+    </form>
+</body>
+</html>

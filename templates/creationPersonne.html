@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création d'une personne</title>
+</head>
+<body>
+    <h1>Créer une nouvelle personne</h1>
+    <form method="post" action="{{ url_for('creationPersonne') }}" enctype="multipart/form-data">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" placeholder="Ecrivez votre nom" required>
+        <br>
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" placeholder="Ecrivez votre prenom" required>
+        <br>
+        <label for="genre">Genre :</label>
+        <select id="genre" name="genre" required>
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+            <option value="autre">Autre</option>
+        </select>
+        <br>
+        <label for="casier">Casier :</label>
+        <input type="file" id="casier" name="casier" accept=".pdf, .doc, .docx, .png, .jpeg" required>
+        <br>
+        <label for="antecedents">Antécedents :</label>
+        <input type="text" id="antecedents" name="antecedents" required>
+        <br>
+        <label for="description">Description :</label>
+        <textarea id="description" name="description" rows="5" cols="33" required placeholder="Decrivez"></textarea>
+        <br>
+        <label for="consentement">Consentement :</label>
+        <input type="text" id="antecedents" name="antecedents" required>
+        <br>
+        <button type="submit">Ajouter Personne</button>
+    </form>
+</body>
+</html>
